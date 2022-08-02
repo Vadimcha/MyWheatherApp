@@ -36,7 +36,7 @@ h2 {
 
 h3 {
   font-size: 32px;
-  font-weight: 600;
+  font-weight: medium;
 }
 
 h4 {
@@ -97,6 +97,12 @@ h4 {
 
 .wrapper2 {
   margin: 50px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.date {
+  margin-bottom: 30px;
 }
 
 .info_block {
@@ -104,6 +110,21 @@ h4 {
   align-items: center;
   gap: 30px;
   margin-top: 20px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.geopos_img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 50%;
+  height: 50%;
+  border: 1px solid #C0C0C0;
 }
 
 .tabs {

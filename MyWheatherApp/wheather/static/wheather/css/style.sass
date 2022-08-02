@@ -35,7 +35,7 @@ h2
   font-weight: 700
 h3
   font-size: 32px
-  font-weight: 600
+  font-weight: medium
 h4
   font-size: 20px
   font-weight: 500
@@ -86,8 +86,15 @@ h4
 .city_name
   margin-bottom: 25px
 
+.info
+
 .wrapper2
   margin: 50px 30px
+  display: flex
+  justify-content: space-between
+
+.date
+  margin-bottom: 30px
 
 .info_block
   display: flex
@@ -95,13 +102,23 @@ h4
   gap: 30px
   margin-top: 20px
 
+.status
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 10px
 
+.geopos_img
+  object-fit: cover
+  width: 50%
+  height: 50%
+  border: 1px solid $grey
+  
 
 
 // Подключние стилей для табов
 .tabs 
     border: 1px solid #e0e0e0
-
 .tabs__nav 
   display: flex
   flex-wrap: wrap
@@ -109,8 +126,6 @@ h4
   background: #fafafa
   margin: 0
   border-bottom: 1px solid #e0e0e0
-  
-
 .tabs__btn 
   padding: 0.5rem 0.75rem
   text-decoration: none
@@ -120,22 +135,15 @@ h4
   flex-grow: 1
   border: 1px solid transparent
   cursor: pointer
-
-  
 .tabs__btn_active 
   background: #e0e0e0
-  cursor: default
-     
+  cursor: default   
 .tabs__btn:not(.tabs__btn_active):hover,
 .tabs__btn:not(.tabs__btn_active):focus 
   background-color: #eee
-    
 .tabs__content 
   padding: 1rem
-    
 .tabs__pane 
-  display: none
-    
+  display: none  
 .tabs__pane_show 
   display: block
-    

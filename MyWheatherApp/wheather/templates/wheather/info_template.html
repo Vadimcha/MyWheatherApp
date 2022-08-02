@@ -1,26 +1,36 @@
 <div class="wrapper2">
-  <div class="date">
-    <h3 style="margin-bottom: 10px;">August 02</h3>
-    <h4>2022-08-02 09:00</h4>
+  <div class="info">
+    <div class="date">
+      <h3 style="margin-bottom: 10px;">August 02</h3>
+      <h4>{{ day_info.max_date }}</h4>
+    </div>
+    <div class="temperature info_block">
+      <h4>Temperature</h4>
+      <h2>{{ day_info.temp }}</h2>
+    </div>
+    <div class="Feels info_block">
+      <h4>Feels like</h4>
+      <h2>{{ day_info.feels }}</h2>
+    </div>
+    <div class="stat info_block">
+      <h4>Today is</h4>
+      <div class="status">
+        <h2>{{ day_info.status }}</h2>
+        <img src={{ day_info.status_icon }} alt="">
+      </div>
+    </div>
+    <div class="wind info_block">
+      <h4>Maximum wind speed</h4>
+      <h2>{{ day_info.wind_speed }} km/h</h2>
+    </div>
+    <div class="cloudiness info_block">
+      <h4>Cloudiness</h4>
+      <h2>{{ day_info.cloud }}%</h2>
+    </div>
   </div>
-  <div class="temperature info_block">
-    <h4>Temperature</h4>
-    <h2>20.3°</h2>
-  </div>
-  <div class="Feels info_block">
-    <h4>Feels like</h4>
-    <h2>20.3°</h2>
-  </div>
-  <div class="status info_block">
-    <h4>Today is</h4>
-    <h2>Partly cloudy</h2>
-  </div>
-  <div class="wind info_block">
-    <h4>Maximum wind speed</h4>
-    <h2>9.7 km/h</h2>
-  </div>
-  <div class="cloudiness info_block">
-    <h4>Cloudiness</h4>
-    <h2>19%</h2>
-  </div>
+  <section class="map">
+    <div class="container">
+      <img src="https://phototowns.ru/wp-content/uploads/2015/11/izh.jpeg" alt="">
+    </div>
+  </section>
 </div>
