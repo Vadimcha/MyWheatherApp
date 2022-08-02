@@ -39,23 +39,35 @@
 
     <div class="tabs">
       <div class="tabs__nav">
-        <button class="tabs__btn tabs__btn_active">Вкладка 1</button>
-        <button class="tabs__btn">Вкладка 2</button>
-        <button class="tabs__btn">Вкладка 3</button>
-        <button class="tabs__btn">Aug 09</button>
+        <button class="tabs__btn tabs__btn_active">Aug 02</button>
+        <button class="tabs__btn">Aug 03</button>
+        <button class="tabs__btn">Aug 04</button>
+        <button class="tabs__btn">Aug 05</button>
+        <button class="tabs__btn">Aug 06</button>
+        <button class="tabs__btn">Aug 07</button>
+        <button class="tabs__btn">Aug 08</button>
       </div>
       <div class="tabs__content">
         <div class="tabs__pane tabs__pane_show">
-          Содержимое 1...
+          {% include "wheather/info_template.html" %}
         </div>
         <div class="tabs__pane">
-          Содержимое 2...
+          {% include "wheather/info_template.html" %}
         </div>
-        <div class="tabs__pane" id="content-3">
-          Содержимое 3...
+        <div class="tabs__pane">
+          {% include "wheather/info_template.html" %}
         </div>
-        <div class="tabs__pane" id="content-3">
-          This is info about Aug 09
+        <div class="tabs__pane">
+          {% include "wheather/info_template.html" %}
+        </div>
+        <div class="tabs__pane">
+          {% include "wheather/info_template.html" %}
+        </div>
+        <div class="tabs__pane">
+          {% include "wheather/info_template.html" %}
+        </div>
+        <div class="tabs__pane">
+          {% include "wheather/info_template.html" %}
         </div>
       </div>
     </div>
