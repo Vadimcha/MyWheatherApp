@@ -26,22 +26,22 @@ input {
 
 h1 {
   font-size: 48px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 h2 {
   font-size: 40px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 h3 {
   font-size: 32px;
-  font-weight: medium;
+  font-weight: 600;
 }
 
 h4 {
   font-size: 20px;
-  font-weight: normal;
+  font-weight: 500;
 }
 
 .wrapper {
@@ -93,6 +93,17 @@ h4 {
 
 .city_name {
   margin-bottom: 25px;
+}
+
+.wrapper2 {
+  margin: 50px 30px;
+}
+
+.info_block {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
 }
 
 .tabs {
