@@ -1,0 +1,125 @@
+$black: #1E1E1E
+$white: #E6E6E6
+$grey: #C0C0C0
+// Main styles
+*
+  margin: 0
+  padding: 0
+  font-family: serif
+  font-family: 'Roboto Condensed', sans-serif
+
+a
+  text-decoration: none
+  color: $black
+
+button 
+  padding: 0
+  border: none
+  font: inherit
+  color: inherit
+  background-color: transparent
+  cursor: pointer
+
+input
+  outline: none
+  border: none
+
+// Font styles
+h1
+  font-size: 48px
+  font-weight: bold
+h2
+  font-size: 40px
+  font-weight: bold
+h3
+  font-size: 32px
+  font-weight: medium
+h4
+  font-size: 20px
+  font-weight: normal
+
+.wrapper
+  padding: 0px 245px 0px 245px
+  margin: 0 auto
+
+.wrap
+  background-color: $black
+  padding: 12px 0px 12px 0px
+
+.header
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.logo
+  color: $white
+
+.nav
+  display: flex
+  gap: 60px
+
+.nav_item
+  color: $white
+
+.main_search
+  border: 1px solid $grey
+  width: 100%
+  padding: 10px 15px
+  margin: 50px 0px
+
+  font-size: 20px
+  font-weight: normal
+
+  &::placeholder
+    font-size: 16px
+
+.city_name
+  margin-bottom: 25px
+
+
+
+
+
+
+
+// Подключние стилей для табов
+.tabs 
+    border: 1px solid #e0e0e0
+
+.tabs__nav 
+  display: flex
+  flex-wrap: wrap
+  list-style-type: none
+  background: #fafafa
+  margin: 0
+  border-bottom: 1px solid #e0e0e0
+  
+
+.tabs__btn 
+  padding: 0.5rem 0.75rem
+  text-decoration: none
+  color: black
+  text-align: center
+  flex-shrink: 0
+  flex-grow: 1
+  border: 1px solid transparent
+  cursor: pointer
+
+  
+.tabs__btn_active 
+  background: #e0e0e0
+  cursor: default
+     
+.tabs__btn:not(.tabs__btn_active):hover,
+.tabs__btn:not(.tabs__btn_active):focus 
+  background-color: #eee
+    
+.tabs__content 
+  padding: 1rem
+    
+.tabs__pane 
+  display: none
+    
+.tabs__pane_show 
+  display: block
+    
