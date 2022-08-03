@@ -48,28 +48,13 @@
         <button class="tabs__btn">Aug 08</button>
       </div>
       <div class="tabs__content">
-        <div class="tabs__pane tabs__pane_show">
-          {% include "wheather/info_template.html" %}
         </div>
-        <div class="tabs__pane">
-          {% include "wheather/info_template.html" %}
+          {% for day in day_info %}
+            <div class="tabs__pane">
+              {% include "wheather/info_template.html" with info=day %}
+            </div>
+          {% endfor %}
         </div>
-        <div class="tabs__pane">
-          {% include "wheather/info_template.html" %}
-        </div>
-        <div class="tabs__pane">
-          {% include "wheather/info_template.html" %}
-        </div>
-        <div class="tabs__pane">
-          {% include "wheather/info_template.html" %}
-        </div>
-        <div class="tabs__pane">
-          {% include "wheather/info_template.html" %}
-        </div>
-        <div class="tabs__pane">
-          {% include "wheather/info_template.html" %}
-        </div>
-      </div>
     </div>
 
   </div>

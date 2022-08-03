@@ -11,21 +11,23 @@ def index(request):
 
   res = requests.get(url.format(api_key, city)).json()
 
-  print(res["forecast"]["forecastday"][0]["hour"][0]["temp_c"])
+  all_info = []
 
-  day_info = {
-    'name': res["location"]["name"],
-    # 'min_date': ,
-    # 'mid_date': ,
-    'max_date': res["forecast"]["forecastday"][0]["hour"][0]["time"],
-    'temp': res["forecast"]["forecastday"][0]["hour"][0]["temp_c"],
-    'feels': res["forecast"]["forecastday"][0]["hour"][0]["feelslike_c"],
-    'status': res["forecast"]["forecastday"][0]["hour"][0]["condition"]["text"],
-    'status_icon': res["forecast"]["forecastday"][0]["hour"][0]["condition"]["icon"],
-    'wind_speed': res["forecast"]["forecastday"][0]["hour"][0]["wind_kph"],
-    'cloud': res["forecast"]["forecastday"][0]["hour"][0]["cloud"]
-  }
+  for i in range(0, 7):
+    day_info = {
+      'name': res["location"]["name"],
+      # 'min_date': ,
+      # 'mid_date': ,
+      'max_date': res["forecast"]["forecastday"][i]["hour"][0]["time"],
+      'temp': res["forecast"]["forecastday"][i]["hour"][0]["temp_c"],
+      'feels': res["forecast"]["forecastday"][i]["hour"][0]["feelslike_c"],
+      'status': res["forecast"]["forecastday"][i]["hour"][0]["condition"]["text"],
+      'status_icon': res["forecast"]["forecastday"][i]["hour"][0]["condition"]["icon"],
+      'wind_speed': res["forecast"]["forecastday"][i]["hour"][0]["wind_kph"],
+      'cloud': res["forecast"]["forecastday"][i]["hour"][0]["cloud"]
+    }
+    all_info.append(day_info)
 
-  all_info = { 'day_info': day_info }
+  all_day_info = { 'day_info': all_info }
 
-  return render(request, 'wheather/index.html', all_info)
+  return render(request, 'wheather/index.html', all_day_info)
