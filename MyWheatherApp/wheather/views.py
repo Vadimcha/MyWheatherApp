@@ -1,7 +1,8 @@
 import requests
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .forms import GetCity
+from .forms import *
+
 
 # Create your views here.
 
@@ -10,15 +11,15 @@ def index(request):
   city = 'Moscow'
   url = 'https://api.weatherapi.com/v1/forecast.json?key={}&q={}&days=7&aqi=no&alerts=no'
 
-  print("YES")
-  forma = 0
+  form = GetCity()
   if request.method == 'POST':
-    forma = GetCity(request.POST)
-    return HttpResponseRedirect('/')
+    form = GetCity(request.POST)
+    if form.is_valid():
+      city = form.cleaned_data['city']
   else:
-    forma = GetCity()
+    form = GetCity()
 
-
+  
 
   res = requests.get(url.format(api_key, city)).json()
 
@@ -48,21 +49,22 @@ def index(request):
       '12': ['December', 'Dec'],
     }
 
+    my_hour = 22
     day_info = {
       'name': res["location"]["name"],
       'min_date': monthes[date[1]][1]+" "+date[2],
       'mid_date': monthes[date[1]][0]+" "+date[2],
-      'max_date': res["forecast"]["forecastday"][i]["hour"][12]["time"],
-      'temp': res["forecast"]["forecastday"][i]["hour"][12]["temp_c"],
-      'feels': res["forecast"]["forecastday"][i]["hour"][12]["feelslike_c"],
-      'status': res["forecast"]["forecastday"][i]["hour"][12]["condition"]["text"],
-      'status_icon': res["forecast"]["forecastday"][i]["hour"][12]["condition"]["icon"],
-      'wind_speed': res["forecast"]["forecastday"][i]["hour"][12]["wind_kph"],
-      'cloud': res["forecast"]["forecastday"][i]["hour"][12]["cloud"]
+      'max_date': res["forecast"]["forecastday"][i]["hour"][my_hour]["time"],
+      'temp': res["forecast"]["forecastday"][i]["hour"][my_hour]["temp_c"],
+      'feels': res["forecast"]["forecastday"][i]["hour"][my_hour]["feelslike_c"],
+      'status': res["forecast"]["forecastday"][i]["hour"][my_hour]["condition"]["text"],
+      'status_icon': res["forecast"]["forecastday"][i]["hour"][my_hour]["condition"]["icon"],
+      'wind_speed': res["forecast"]["forecastday"][i]["hour"][my_hour]["wind_kph"],
+      'cloud': res["forecast"]["forecastday"][i]["hour"][my_hour]["cloud"]
     }
     all_info.append(day_info)
 
-  all_day_info = { 'day_info': all_info, 'city': city, 'form': forma }
+  all_day_info = { 'day_info': all_info, 'city': city, 'form': form }
 
   return render(request, 'wheather/index.html', all_day_info)
   #return render(request, 'wheather/index2.html')

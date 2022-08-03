@@ -33,10 +33,10 @@
 
   <div class="wrapper content">
 
-    <form action="/city/" method="post" class="search_form">
+    <form action="" method="post" class="search_form">
       {% csrf_token %}
-      {{ forma }}
-      <input type="text" class="main_search" placeholder="Search Russian City...">
+      {{ form.as_p }}
+      <!-- <input type="text" class="main_search" placeholder="Search Russian City..."> -->
       <button type="submit" class="submit-button"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
 
@@ -60,6 +60,14 @@
     </div>
 
   </div>
+
+  <footer class="wrap" style="margin-top: 50px;">
+    <div class="wrapper footer">
+        <h4 class="logo">My Wheather App</h4>
+        <h4 class="dscr">Copyright © 2022 Vadik Company. All rights reserved</h4>
+        <a href="#" class="nav_item"><h4>Contact</h4></a>
+    </div>
+  </footer>
   <script src="{% static 'wheather/js/main.js' %}"></script>
 </body>
 
