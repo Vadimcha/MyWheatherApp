@@ -53,4 +53,4 @@ def index(request):
 
   all_day_info = { 'day_info': all_info }
 
-  return render(request, 'wheather/index.html', all_day_info)
+  return render(request, 'wheather/index.html', all_day_info, city)

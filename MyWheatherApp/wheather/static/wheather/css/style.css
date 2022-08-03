@@ -95,10 +95,12 @@ h4 {
   margin-bottom: 25px;
 }
 
+.info {
+  margin-bottom: 40px;
+}
+
 .wrapper2 {
   margin: 50px 30px;
-  display: flex;
-  justify-content: space-between;
 }
 
 .date {
@@ -120,10 +122,6 @@ h4 {
 }
 
 .geopos_img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 50%;
-  height: 50%;
   border: 1px solid #C0C0C0;
 }
 
