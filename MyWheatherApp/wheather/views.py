@@ -11,13 +11,36 @@ def index(request):
 
   res = requests.get(url.format(api_key, city)).json()
 
+
   all_info = []
 
   for i in range(0, 7):
+    date = res["forecast"]["forecastday"][i]["hour"][0]["time"].split('-')
+    last_date = date[-1].split(' ')
+    date.pop()
+    date.append(last_date[0])
+    date.append(last_date[1])
+
+    monthes = {
+      '01': ['January', 'Jan'],
+      '02': ['February', 'Feb'],
+      '03': ['March', 'Mar'],
+      '04': ['April', 'Apr'],
+      '05': ['May', 'May'],
+      '06': ['June', 'June'],
+      '07': ['July', 'July'],
+      '08': ['August', 'Aug'],
+      '09': ['September', 'Sept'],
+      '10': ['October', 'Oct'],
+      '11': ['November', 'Nov'],
+      '12': ['December', 'Dec'],
+    }
+
+    print(date)
     day_info = {
       'name': res["location"]["name"],
-      # 'min_date': ,
-      # 'mid_date': ,
+      'min_date': monthes[date[1]][1]+" "+date[2],
+      'mid_date': monthes[date[1]][0]+" "+date[2],
       'max_date': res["forecast"]["forecastday"][i]["hour"][0]["time"],
       'temp': res["forecast"]["forecastday"][i]["hour"][0]["temp_c"],
       'feels': res["forecast"]["forecastday"][i]["hour"][0]["feelslike_c"],

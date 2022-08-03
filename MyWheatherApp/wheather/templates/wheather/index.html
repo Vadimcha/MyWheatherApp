@@ -39,13 +39,9 @@
 
     <div class="tabs">
       <div class="tabs__nav">
-        <button class="tabs__btn tabs__btn_active">Aug 02</button>
-        <button class="tabs__btn">Aug 03</button>
-        <button class="tabs__btn">Aug 04</button>
-        <button class="tabs__btn">Aug 05</button>
-        <button class="tabs__btn">Aug 06</button>
-        <button class="tabs__btn">Aug 07</button>
-        <button class="tabs__btn">Aug 08</button>
+        {% for day in day_info %}
+          <button class="tabs__btn">{{ day.min_date }}</button>
+        {% endfor %}
       </div>
       <div class="tabs__content">
         </div>
