@@ -69,11 +69,15 @@ h4
 
 // content
 // search field
+.search_form
+  position: relative
+  margin: 50px 0px
+
 .main_search
   border: 1px solid $grey
-  width: 100%
+  width: 97.5%
   padding: 10px 15px
-  margin: 50px 0px
+  
 
   font-size: 20px
   font-weight: normal
@@ -81,16 +85,20 @@ h4
   &::placeholder
     font-size: 16px
 
+.submit-button
+  position: absolute
+  right: 15px
+  top: 15px
+
 
 // Wheather Info
 .city_name
   margin-bottom: 25px
-
-.info
-  margin-bottom: 40px
   
 .wrapper2
   margin: 50px 30px
+  display: flex
+  justify-content: space-between
 
 .date
   margin-bottom: 30px
@@ -109,6 +117,8 @@ h4
 
 .geopos_img
   border: 1px solid $grey
+  max-width: 45%
+  object-fit: contain
   
 
 

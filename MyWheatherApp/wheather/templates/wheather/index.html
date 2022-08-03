@@ -15,6 +15,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
   
+  <!-- Подключение иконок Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
 </head>
 <body>
   <header class="wrap">
@@ -30,8 +33,11 @@
 
   <div class="wrapper content">
 
-    <form action="" method="post" class="search_form">
+    <form action="/city/" method="post" class="search_form">
+      {% csrf_token %}
+      {{ forma }}
       <input type="text" class="main_search" placeholder="Search Russian City...">
+      <button type="submit" class="submit-button"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
 
     <h1 class="city_name">{{ city }}</h1>
