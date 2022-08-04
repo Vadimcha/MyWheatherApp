@@ -1,74 +1,86 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-  <!-- Подключение стилей -->
-  <link rel="stylesheet" href="{% static 'wheather/css/style.css' %}">
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="{% static 'wheather/css/style.css' %}">
 
-  <!-- Подключение шрифта Roboto Condensed -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
-  
-  <!-- Подключение иконок Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <!-- Подключение шрифта Roboto Condensed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Подключение иконок Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+    <!-- Поключение mapbox -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 
 </head>
+
 <body>
-  <header class="wrap">
-    <div class="wrapper header">
-        <h4 class="logo">My Wheather App</h4>
-        <nav class="nav">
-          <a href="#" class="nav_item"><h4>Main Page</h4></a>
-          <a href="#" class="nav_item"><h4>Contact</h4></a>
-          <a href="#" class="nav_item"><h4>About Us</h4></a>
-        </nav>
-    </div>
-  </header>
-
-  <div class="wrapper content">
-
-    <form action="" method="post" class="search_form">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <!-- <input type="text" class="main_search" placeholder="Search Russian City..."> -->
-      <button type="submit" class="submit-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </form>
-
-    <h1 class="city_name">{{ city }}</h1>
-    
-
-    <div class="tabs">
-      <div class="tabs__nav">
-        {% for day in day_info %}
-          <button class="tabs__btn">{{ day.min_date }}</button>
-        {% endfor %}
-      </div>
-      <div class="tabs__content">
+    <header class="wrap">
+        <div class="wrapper header">
+            <h4 class="logo">My Wheather App</h4>
+            <nav class="nav">
+                <a href="#" class="nav_item">
+                    <h4>Main Page</h4>
+                </a>
+                <a href="#" class="nav_item">
+                    <h4>Contact</h4>
+                </a>
+                <a href="#" class="nav_item">
+                    <h4>About Us</h4>
+                </a>
+            </nav>
         </div>
-          {% for day in day_info %}
-            <div class="tabs__pane">
-              {% include "wheather/info_template.html" with info=day %}
+    </header>
+
+    <div class="wrapper content">
+
+        <form action="" method="post" class="search_form">
+            {% csrf_token %} {{ form.as_p }}
+            <!-- <input type="text" class="main_search" placeholder="Search Russian City..."> -->
+            <button type="submit" class="submit-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+
+        <h1 class="city_name">{{ city }}</h1>
+
+
+        <div class="tabs">
+            <div class="tabs__nav">
+                {% for day in day_info %}
+                <button class="tabs__btn">{{ day.min_date }}</button> {% endfor %}
             </div>
-          {% endfor %}
+            <div class="tabs__content">
+            </div>
+            {% for day in day_info %}
+            <div class="tabs__pane">
+                {% include "wheather/info_template.html" with info=day %}
+            </div>
+            {% endfor %}
         </div>
     </div>
 
-  </div>
-
-  <footer class="wrap" style="margin-top: 50px;">
-    <div class="wrapper footer">
-        <h4 class="logo">My Wheather App</h4>
-        <h4 class="dscr">Copyright © 2022 Vadik Company. All rights reserved</h4>
-        <a href="#" class="nav_item"><h4>Contact</h4></a>
     </div>
-  </footer>
-  <script src="{% static 'wheather/js/main.js' %}"></script>
+
+    <footer class="wrap" style="margin-top: 50px;">
+        <div class="wrapper footer">
+            <h4 class="logo">My Wheather App</h4>
+            <h4 class="dscr">Copyright © 2022 Vadik Company. All rights reserved</h4>
+            <a href="#" class="nav_item">
+                <h4>Contact</h4>
+            </a>
+        </div>
+    </footer>
+    <script src="{% static 'wheather/js/main.js' %}"></script>
 </body>
 
 </html>

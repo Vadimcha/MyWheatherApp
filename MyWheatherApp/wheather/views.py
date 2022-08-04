@@ -22,8 +22,8 @@ def index(request):
   
 
   res = requests.get(url.format(api_key, city)).json()
-
-
+  lat = res["location"]["lat"]
+  lon = res["location"]["lon"]
 
   all_info = []
 
@@ -64,7 +64,7 @@ def index(request):
     }
     all_info.append(day_info)
 
-  all_day_info = { 'day_info': all_info, 'city': city, 'form': form }
+  all_day_info = { 'day_info': all_info, 'city': city, 'form': form, 'lat': lat, 'lon': lon}
 
   return render(request, 'wheather/index.html', all_day_info)
   #return render(request, 'wheather/index2.html')

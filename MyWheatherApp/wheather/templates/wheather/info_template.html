@@ -1,32 +1,42 @@
 <div class="wrapper2">
-  <div class="info">
-    <div class="date">
-      <h3 style="margin-bottom: 10px;">{{ info.mid_date }}</h3>
-      <h4>{{ info.max_date }}</h4>
+    <div class="info">
+        <div class="date">
+            <h3 style="margin-bottom: 10px;">{{ info.mid_date }}</h3>
+            <h4>{{ info.max_date }}</h4>
+        </div>
+        <div class="temperature info_block">
+            <h4>Temperature</h4>
+            <h2>{{ info.temp }}°</h2>
+        </div>
+        <div class="Feels info_block">
+            <h4>Feels like</h4>
+            <h2>{{ info.feels }}°</h2>
+        </div>
+        <div class="stat info_block">
+            <h4>Today is</h4>
+            <div class="status">
+                <h2>{{ info.status }}</h2>
+                <img src={{ info.status_icon }} alt="">
+            </div>
+        </div>
+        <div class="wind info_block">
+            <h4>Maximum wind speed</h4>
+            <h2>{{ info.wind_speed }} km/h</h2>
+        </div>
+        <div class="cloudiness info_block">
+            <h4>Cloudiness</h4>
+            <h2>{{ info.cloud }}%</h2>
+        </div>
     </div>
-    <div class="temperature info_block">
-      <h4>Temperature</h4>
-      <h2>{{ info.temp }}°</h2>
-    </div>
-    <div class="Feels info_block">
-      <h4>Feels like</h4>
-      <h2>{{ info.feels }}°</h2>
-    </div>
-    <div class="stat info_block">
-      <h4>Today is</h4>
-      <div class="status">
-        <h2>{{ info.status }}</h2>
-        <img src={{ info.status_icon }} alt="">
-      </div>
-    </div>
-    <div class="wind info_block">
-      <h4>Maximum wind speed</h4>
-      <h2>{{ info.wind_speed }} km/h</h2>
-    </div>
-    <div class="cloudiness info_block">
-      <h4>Cloudiness</h4>
-      <h2>{{ info.cloud }}%</h2>
-    </div>
-  </div>
-  <img class="geopos_img" src="https://phototowns.ru/wp-content/uploads/2015/11/izh.jpeg" alt="">
+    <div id="map" style='width: 400px; height: 300px;'></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibjBuNG0zIiwiYSI6ImNsNmV2MzU5OTAzYXIzZHBtMDFzOXVlc3gifQ.GYa-HswIZsImq9fv6fU4bw';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [{{ lon }}, {{ lat}}],
+            zoom: 7
+        });
+    </script>
+
 </div>
